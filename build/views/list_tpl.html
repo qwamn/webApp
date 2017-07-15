@@ -1,0 +1,21 @@
+<div class="list" ng-repeat="(key , value) in listData.posts" ui-sref="home.detail({id:key})">
+    <span class="tips" ng-bind="value.column.name" ng-show="value.column.name">洗洗睡</span>
+    <h2 ng-bind="value.title"></h2>
+    <!--样式1图文混排-->
+    <div class="post1 clearfix" ng-if="value.display_style==10002">
+        <p ng-bind="value.abstract"></p>
+        <img src="images/home/post_1.png" alt="">
+    </div>
+    <!--样式2文字排版-->
+    <div class="post2" ng-if="value.display_style==10001">
+        <p ng-bind="value.abstract"></p>
+    </div>
+    <!--样式3图片排版-->
+    <div class="post3" ng-if="value.display_style==10003">
+        <ul>
+            <li><img src="images/home/post_3.png" alt=""></li>
+            <li><img src="images/home/post_4.png" alt=""></li>
+            <li><img src="images/home/post_5.png" alt=""></li>
+        </ul>
+    </div>
+</div>

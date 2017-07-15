@@ -1,12 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-controller="AppController">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title ng-bind="webTitle">Document</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <navs></navs>
+<!--顶部结束-->
+<div class="main">
+    <div class="home" ui-view="home" ng-show="id==0"></div>
+    <div class="author" ui-view="author" ng-show="id==1"></div>
+    <div class="content" ui-view="content" ng-show="id==2"></div>
+    <div class="my" ui-view="my" ng-show="id==3"></div>
+</div>
+<tabbar></tabbar>
+<!--尾部结束-->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="js/index.js"></script>
+<script>
+    var fs=window.screen.width/10+ 'px';
+    document.getElementsByTagName('html')[0].style.fontSize=fs;
+</script>
 </body>
 </html>
